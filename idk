@@ -1,0 +1,90 @@
+arenas:
+  # this is the name of your arena (Only change whilst server is stopped)
+  TEST:
+    # This is the bounding region of your arena (Only change whilst server is stopped)
+    bound:
+      world: world
+      x: -113
+      y: 95
+      z: -355
+      x2: -261
+      y2: 60
+      z2: -205
+    info:
+      # Cost to play this game (will show up on sign)
+      cost: 10
+      # The time (in seconds - increments of 30 only) that this arena will run for
+      timer: 90
+      # The minimum amount of players for this game to start
+      min-players: 2
+      # The maximum amount of players that can join this game
+      max-players: 8
+    # The location of the lobby sign for this game (This shouldn't be changed in the config)
+    lobbysign: world:3:72:29
+    # The spawn points for your arena (Only change whilst server is stopped)
+    spawns:
+    - world:-188:70:-305:1.1759033:19.76662
+    - world:-204:70:-298:311.976:8.516614
+    - world:-210:70:-281:271.47617:-0.1833858
+    - world:-205:70:-265:224.97621:1.9166147
+    - world:-187:70:-257:181.47647:0.86661774
+    - world:-169:70:-264:131.52661:4.6166277
+    - world:-164:70:-282:93.27672:9.716626
+    - world:-171:70:-299:42.876766:9.116629
+    # The time (in seconds - increments of 30 only) left in a game for the chests to refill (set to 0 to disable)
+    chest-refill: 30
+    border:
+      # Center point for the world border
+      center: world:-188:75:-282
+      # Final diameter size for the world border
+      size: 10
+      # The time (in seconds - increments of 30 only) left in game for the world border to start shrinking
+      countdown-start: 60
+      # The time left in game for the world border to stop shrinking (reaches its final size)
+      countdown-end: 30
+    # Commands to run for this arena (to disable commands, just put "none" in the list)
+    # Command types = start, stop, join, death
+    # Placeholders:
+      # <arena> = will be replaced with the name of the arena
+      # <world> = will be replaced with the name of the world
+      # <player> = will be replaced with the name of the player in this event (only supported in start, join and death events)
+    commands:
+    - none # disables commands
+    # Here are some examples to show you how types and placeholders work
+    - start:broadcast hello everyone
+    - stop:time set day <world>
+    - join:eco take <player> 100
+    - death:spawn <player>
+    # Arenas support their own items/bonus items loot tables. See items.yml wiki for more info on how to customize
+    # These items/bonus items will override the main plugin's items/bonus items.
+    items:
+    - DIAMOND_SWORD 1
+    - IRON_HOE 1
+    - COOKED_CHICKEN 3
+    bonus:
+    - GRASS_BLOCK 1
+    - STONE 1
+    - DIRT 1
+    # Arenas support per-arena kits. See config.yml wiki for more info on how to customize kits
+    # These kits will override the main plugin's kits.
+    kits:
+      RedWarrior:
+        permission: none
+        helmet: LEATHER_HELMET color:red
+        chestplate: LEATHER_CHESTPLATE color:red
+        leggings: LEATHER_LEGGINGS color:red
+        boots: LEATHER_BOOTS color:red
+        items:
+        - DIAMOND_PICKAXE 1 enchant:efficiency:1
+        - BOW 1
+        - ARROW 16
+      ArmoredKnight:
+        permission: none
+        helmet: DIAMOND_HELMET
+        chestplate: IRON_CHESTPLATE
+        leggings: LEATHER_LEGGINGS color:green
+        boots: IRON_BOOTS
+        items:
+        - BOW name:&2Lucky_Bow
+        - ARROW 64 name:&aLucky_Arrow
+        - POTION:HEAL:60:0 2 name:&bHealing_Potion
